@@ -39,7 +39,14 @@ function logKey(e) {
             result = operate(num1, op, num2);
             display.textContent = result
             num1 = result
+            num2 = undefined
         } else{
+            if (num1 != undefined && num2 != undefined) {
+                result = operate(num1, op, num2);
+                display.textContent = result
+                num1 = result
+                num2 = undefined
+            }
             op = e.key;
             console.log(op)
             clear();
