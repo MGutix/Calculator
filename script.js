@@ -26,14 +26,15 @@ function logKey(e) {
 
     if (regEx.test(e.key) == true){
         display.textContent += `${e.key}`;
-    } else if (['+', '-', '*', '/', 'Enter'].includes(e.key)) {
+
         if (num1 === undefined) {
             num1 = display.innerHTML;
-            console.log(num1)
         } else if (num1 != undefined){
             num2 = display.innerHTML;
-            console.log(num2)
         }
+
+    } else if (['+', '-', '*', '/', 'Enter'].includes(e.key)) {
+        
         
         if (e.key == 'Enter') {
             clear();
@@ -43,13 +44,13 @@ function logKey(e) {
             num2 = undefined
         } else{
             if (num1 != undefined && num2 != undefined) {
+                clear();
                 result = operate(num1, op, num2);
                 display.textContent = result
                 num1 = result
                 num2 = undefined
             }
             op = e.key;
-            console.log(op)
             clear();
         }
         
@@ -57,12 +58,18 @@ function logKey(e) {
     
 };
 
+
 const clearButton = document.getElementById('clear')
-clearButton.addEventListener("click", clear);
+clearButton.addEventListener("mouseup", clearAll);
 
 function clear(){
     display.textContent = ''
-    
+}
+
+function clearAll(){
+    display.textContent = ''
+    num1 = undefined
+    num2 = undefined
 }
 
 
