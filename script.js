@@ -26,7 +26,7 @@ function logKey(e) {
 
     if (regEx.test(e.key) == true){
         display.textContent += `${e.key}`;
-    } else if (e.key == '+'|| e.key == '-'|| e.key == '*'|| e.key == '/' || e.key == 'Enter') {
+    } else if (['+', '-', '*', '/', 'Enter'].includes(e.key)) {
         if (num1 === undefined) {
             num1 = display.innerHTML;
             console.log(num1)
@@ -36,6 +36,7 @@ function logKey(e) {
         }
         
         if (e.key == 'Enter') {
+            clear();
             result = operate(num1, op, num2);
             display.textContent = result
             num1 = result
@@ -61,6 +62,7 @@ clearButton.addEventListener("click", clear);
 
 function clear(){
     display.textContent = ''
+    
 }
 
 
