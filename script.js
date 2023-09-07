@@ -73,21 +73,13 @@ function logKey(e) {
                 num2 = undefined
             } else {
                 num1 = result
+                op = e.key;
                 secondaryDisplay.textContent = `${num1} ${op}`
                 clearMainDisplay();
-                op  = undefined
             }
             num2 = undefined
-        }   
-        
-        
+        }  
         
      }
     
 };
-
-// User types again (if user types other op before number change op to new one) save Num2
-// When op appears:
-    //OPERATE!
-    // if op is = show in secondary display '45 + 5 =' and in main result
-    // if op is NOT = show in secondary display 'result +' and in main result
